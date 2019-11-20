@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Url Shortener</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">URL Shortener Service</a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Your Profile</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container">
+  <div style="text-align: center; margin:20px;">
+      <h3>Url Shortener Service</h3>
+      <p>Enjoy our free service</p>
+  </div>
+  <%if(!shortUrl){%>
+  <div>
+      <div style="text-align: center; margin:20px;">
+          <form class="form-group" method="POST" action="api/url/shorten" enctype="application/x-www-form-urlencoded" >
+              <input type="text" class="form-control" id="url" name="longUrl" placeholder="Enter URL">
+              <button type="submit" class="btn btn-primary" style="margin: 20px;">Get short URL</button>
+          </form>
+      </div>
+  </div>
+  <%}%>
+ 
+  <%if(shortUrl){%>
+  <div >
+   <a href="http://localhost:5000/"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPv35WzjhMVct9p4kFRWTHXc7Y51pswuzbqa3bWWzLkH1DK9s&s" style="max-height: 30px; max-width:30px;"></a>
+    <ul class="list-group">
+      <li  class="list-group-item">
+          <a href="<%=shortUrl%>"><%=shortUrl%></a>
+      </li>
+    </ul>
+  </div>
+  <%}%>
+ 
+  
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://amaan:instaCarUrlAssignment@cluster0-lnfwh.mongodb.net/test?retryWrites=true&w=majority",
+    "baseUrl":"http://localhost:5000"
+}
