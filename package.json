@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "description": "This is an assignment for InstaCar. This app is developed for shortening URL service",
   "main": "app.js",
+  "engines":{
+    "node":"10.15.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "start-server": "node index.js",
+    "start:dev": "nodemon index.js"
+  
   },
   "author": "Er.Amaan Imtiyaz",
   "license": "ISC",
