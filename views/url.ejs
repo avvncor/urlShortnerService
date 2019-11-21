@@ -41,29 +41,27 @@
       <h3>Url Shortener Service</h3>
       <p>Enjoy our free service</p>
   </div>
-  <%if(!shortUrl){%>
-  <div>
+  <%if(!shortUrl && !error ){%>
+  <div><%=error%>
       <div style="text-align: center; margin:20px;">
-          <form class="form-group" method="POST" action="api/url/shorten" enctype="application/x-www-form-urlencoded" >
+          <form class="form-group" method="POST" action="api/url/shorten" >
               <input type="text"  class="form-control" id="url" name="longUrl" placeholder="Enter URL">
-              <button type="submit" class="btn btn-primary" style="margin: 20px;">Get short URL</button>
+              <button class="btn btn-primary" style="margin: 20px;" type="submit">Get short URL</button>
           </form>
       </div>
   </div>
   <%}%>
  
   <%if(shortUrl){%>
-  <div >
+  <div class="col-md-6" >
    <a href="https://urlshortner728.herokuapp.com"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPv35WzjhMVct9p4kFRWTHXc7Y51pswuzbqa3bWWzLkH1DK9s&s" style="max-height: 30px; max-width:30px;"></a>
-    
-    
           <a href="<%=shortUrl%>"><%=shortUrl%></a>
-      
-    
   </div>
   <%}%>
- 
-  
+  <%if(error){%>
+    <a href="https://urlshortner728.herokuapp.com"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPv35WzjhMVct9p4kFRWTHXc7Y51pswuzbqa3bWWzLkH1DK9s&s" style="max-height: 30px; max-width:30px;"></a>
+    <h3>Invalid Entry</h3>
+    <%}%>
 
 
 

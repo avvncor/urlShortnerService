@@ -6,17 +6,16 @@ const config = require('config');
 const Url = require('../models/url')
 
 router.post('/shorten',  async (req,res,next)=>{
-   
     
-    const { longUrl } = req.body;
+    const {longUrl} = req.body;
+    if(longUrl){
+       return  res.render('url',{
+            shortUrl:"",
+            error:"Invalid Url"
+        })
+    }
     
     const baseUrl = config.get('baseUrl');
-    console.log(longUrl)
-
-    if(!validUrl.isUri(baseUrl)){
-        return res.status(401).json('Invalid base Url')
-    }
-
     const urlCode = shortid.generate();
 
     if(validUrl.isUri(longUrl)){
@@ -50,7 +49,10 @@ router.post('/shorten',  async (req,res,next)=>{
             return res.status(500).json('Server Error')
         }   
     }else{
-        res.status(401).json('Invalid Long Url')
+        return res.render('url',{
+            shortUrl:"",
+            error:"Invalid Url"
+        })
     }
 })
 
