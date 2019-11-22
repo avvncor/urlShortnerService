@@ -12,7 +12,9 @@ app.set('views','views')
 
 app.use('/', require('./routes/index'));
 app.use('/api/url/', require('./routes/url'));
-
+app.use((req,res,next)=>{
+    res.render('404')
+})
 
 const PORT = process.env.PORT || 5000;
 // const PORT =  5000;
