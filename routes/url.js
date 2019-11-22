@@ -8,7 +8,7 @@ const Url = require('../models/url')
 router.post('/shorten',  async (req,res,next)=>{
     
     const {longUrl} = req.body;
-    if(longUrl){
+    if(!longUrl){
        return  res.render('url',{
             shortUrl:"",
             error:"Invalid Url"
